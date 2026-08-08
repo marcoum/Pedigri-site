@@ -1,0 +1,764 @@
+<!DOCTYPE html><html lang="pt-BR" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Clínica Veterinária Pedigri 24h</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&amp;family=Montserrat:wght@400;600;700&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#efeded",
+                        "surface-container-high": "#e9e8e7",
+                        "surface-bright": "#fbf9f9",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "on-surface": "#1b1c1c",
+                        "inverse-primary": "#a7c6ff",
+                        "tertiary-fixed": "#e2e2e2",
+                        "surface-container-highest": "#e3e2e2",
+                        "tertiary": "#5d5f5f",
+                        "on-primary-container": "#0c2f57",
+                        "on-tertiary-container": "#2f3132",
+                        "secondary-fixed-dim": "#b7dd93",
+                        "primary-fixed": "#d6e3ff",
+                        "inverse-surface": "#303031",
+                        "on-secondary-fixed": "#102900",
+                        "surface": "#fbf9f9",
+                        "outline-variant": "#c3cbd6",
+                        "inverse-on-surface": "#f2f0f0",
+                        "secondary": "#6BB338",
+                        "on-secondary-container": "#223d00",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e3e2e2",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "on-error-container": "#93000a",
+                        "surface-container-low": "#f5f3f3",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "outline": "#5b6a7a",
+                        "on-primary-fixed-variant": "#00315c",
+                        "primary-fixed-dim": "#a7c6ff",
+                        "on-primary-fixed": "#001d3d",
+                        "surface-tint": "#154884",
+                        "secondary-container": "#d6f3b8",
+                        "surface-dim": "#dbdad9",
+                        "on-primary": "#ffffff",
+                        "on-background": "#1b1c1c",
+                        "primary": "#154884",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#d2e2ff",
+                        "tertiary-container": "#989999",
+                        "secondary-fixed": "#d6f3b8",
+                        "error": "#ba1a1a",
+                        "on-secondary": "#152f00",
+                        "on-surface-variant": "#55606f",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "on-secondary-fixed-variant": "#3a6100",
+                        "background": "#fbf9f9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1200px",
+                        "base": "8px",
+                        "gutter": "24px",
+                        "xl": "80px",
+                        "md": "24px",
+                        "sm": "12px",
+                        "xs": "4px",
+                        "lg": "48px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Baloo 2", "Montserrat"],
+                        "headline-lg-mobile": ["Baloo 2", "Montserrat"],
+                        "body-md": ["Open Sans"],
+                        "body-sm": ["Open Sans"],
+                        "body-lg": ["Open Sans"],
+                        "label-md": ["Open Sans"],
+                        "headline-sm": ["Baloo 2", "Montserrat"],
+                        "headline-md": ["Baloo 2", "Montserrat"],
+                        "headline-lg": ["Baloo 2", "Montserrat"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .ambient-shadow {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+        .hover-lift {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* ============ JS EFFECTS ============ */
+        .reveal, .reveal-left, .reveal-right {
+            opacity: 0;
+            transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal { transform: translateY(36px) scale(0.98); }
+        .reveal-left { transform: translateX(-56px); }
+        .reveal-right { transform: translateX(56px); }
+        .reveal.in, .reveal-left.in, .reveal-right.in { opacity: 1; transform: none; }
+
+        @keyframes floatPaw { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-20px) rotate(10deg); } }
+        @keyframes floatPawAlt { 0%, 100% { transform: translateY(0) rotate(-8deg); } 50% { transform: translateY(16px) rotate(8deg); } }
+        .float-sparkle { position: absolute; pointer-events: none; animation: floatPaw 6s ease-in-out infinite; }
+        .paw-float { animation: floatPaw 6s ease-in-out infinite; }
+        .paw-float-alt { animation: floatPawAlt 7s ease-in-out infinite; }
+
+        @keyframes pulseRing { 0% { box-shadow: 0 0 0 0 rgba(107, 179, 56, 0.55); } 70% { box-shadow: 0 0 0 18px rgba(107, 179, 56, 0); } 100% { box-shadow: 0 0 0 0 rgba(107, 179, 56, 0); } }
+        .pulse-ring { animation: pulseRing 2.4s cubic-bezier(0.66, 0, 0, 1) infinite; }
+
+        @keyframes shine { to { background-position: 200% center; } }
+        .text-shine {
+            background: linear-gradient(100deg, #154884 0%, #6BB338 25%, #154884 50%, #6BB338 75%, #154884 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            animation: shine 3.5s linear infinite;
+        }
+
+        #progress { position: fixed; top: 0; left: 0; height: 4px; width: 0; background: linear-gradient(90deg, #154884, #6BB338); z-index: 100; }
+
+        #back-top {
+            position: fixed; bottom: 24px; right: 24px; z-index: 90;
+            background: #154884; color: #fff; border-radius: 9999px; padding: 12px; cursor: pointer;
+            box-shadow: 0 8px 24px rgba(21, 72, 132, 0.35);
+            opacity: 0; transform: translateY(20px); pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.3s ease, background 0.3s ease;
+        }
+        #back-top:hover { background: #6BB338; }
+        #back-top.show { opacity: 1; transform: none; pointer-events: auto; }
+
+        #site-header .header-inner { transition: height 0.35s ease; }
+        #site-header.scrolled .header-inner { height: 56px; }
+        #site-header.scrolled .header-logo { height: 36px !important; }
+
+        .tilt { transform-style: preserve-3d; will-change: transform; transition: transform 0.25s ease; }
+        .magnetic { transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.3, 1); }
+
+        @keyframes faqIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: none; } }
+        details[open] > div { animation: faqIn 0.4s ease; }
+
+        ::selection { background: #6BB338; color: #ffffff; }
+        ::-webkit-scrollbar { width: 12px; }
+        ::-webkit-scrollbar-track { background: #f5f3f3; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #154884, #6BB338); border-radius: 8px; border: 2px solid #f5f3f3; }
+        ::-webkit-scrollbar-thumb:hover { background: #6BB338; }
+
+        .banner-brand {
+            background:
+                radial-gradient(circle at 8% 50%, rgba(107, 179, 56, 0.3), transparent 45%),
+                linear-gradient(100deg, #154884 0%, #1e5fb0 60%, #174f96 100%);
+            border-bottom: 4px solid #6BB338;
+        }
+        .paw-pattern {
+            background-image:
+                radial-gradient(rgba(21, 72, 132, 0.05) 2.5px, transparent 2.5px),
+                radial-gradient(rgba(107, 179, 56, 0.06) 2.5px, transparent 2.5px);
+            background-size: 44px 44px;
+            background-position: 0 0, 22px 22px;
+        }
+        .eyebrow {
+            display: inline-flex; align-items: center; gap: 8px;
+            color: #6BB338; font-size: 12px; font-weight: 700;
+            letter-spacing: 0.25em; text-transform: uppercase;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .float-sparkle, .paw-float, .paw-float-alt, .text-shine, .pulse-ring { animation: none; }
+            .reveal, .reveal-left, .reveal-right { opacity: 1; transform: none; transition: none; }
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased overflow-x-hidden">
+<div id="progress"></div>
+<button id="back-top" aria-label="Voltar ao topo"><span class="material-symbols-outlined">arrow_upward</span></button>
+<!-- Emergency Banner -->
+<div class="banner-brand text-on-primary py-sm px-4 text-center sticky top-0 z-[60] shadow-sm">
+<p class="font-label-md text-label-md flex items-center justify-center gap-2 text-[12px] sm:text-label-md">
+<span class="material-symbols-outlined fill">emergency</span>
+            <span class="hidden sm:inline">Emergência 24h: Estamos sempre abertos para cuidar do seu pet. Ligue agora!</span>
+            <span class="sm:hidden">Emergência 24h — Ligue agora!</span>
+            <span class="material-symbols-outlined text-base -rotate-12">pets</span>
+        </p>
+</div>
+<!-- TopNavBar -->
+<header id="site-header" class="bg-surface/90 dark:bg-surface-dim/90 backdrop-blur-md full-width sticky top-[40px] z-50 border-b border-outline-variant/30 shadow-sm">
+<div class="header-inner flex justify-between items-center h-20 px-4 md:px-8 lg:px-20 max-w-container-max mx-auto">
+<div class="flex items-center gap-2">
+<img alt="Pedigri Logo" class="header-logo h-12 sm:h-16 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARi7_V04UonepRQFvDLUU-GXnHmhjL3EoTRxt7c4L9VomdzkRkajwlv24IIQXFrxKlFsi9VaKTWRI8QkOpmbYViMePT8NJc32i3KR1L2aEXuQbOwZY4gaxq5uhz-EY4aRy6doEmShk8mdWYQw_S71zh6QkRMP4_j_J7PRNa2UDo67dOJ1ZFqtmWiFlko9xXOHo_a2kAnuVMEr1v-0AB1itUKYUVlsTeeoO-klj3UiWxlCMKXeXxODEdOZmV0e5ENUkEiZlRab_iQ">
+</div>
+<nav class="hidden lg:flex items-center gap-6">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-container-low px-3 py-2 rounded-md" href="#servicos">Serviços</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-container-low px-3 py-2 rounded-md" href="#especialidades">Especialidades</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-container-low px-3 py-2 rounded-md" href="#sobre">Sobre</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-container-low px-3 py-2 rounded-md" href="#depoimentos">Depoimentos</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-container-low px-3 py-2 rounded-md" href="#faq">FAQ</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-container-low px-3 py-2 rounded-md" href="#contato">Contato</a>
+</nav>
+<div class="flex items-center gap-3">
+<button class="hidden sm:inline-flex bg-gradient-to-r from-primary to-[#2a67b8] text-on-primary font-label-md text-label-md px-4 md:px-6 py-3 rounded-full hover:from-primary hover:to-primary transition-all items-center gap-2 hover-lift">
+<span class="">Agendar Consulta</span>
+<span class="material-symbols-outlined text-sm">medical_services</span>
+</button>
+<button id="menu-btn" class="lg:hidden bg-primary text-on-primary p-3 rounded-full hover:bg-primary-container hover:text-on-primary-container transition-all" aria-label="Abrir menu">
+<span id="menu-icon" class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+<nav id="mobile-menu" class="lg:hidden hidden bg-surface/95 backdrop-blur-md border-t border-outline-variant/30 px-6 py-4 flex-col gap-1">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary hover:bg-surface-container-low px-3 py-3 rounded-md" href="#servicos">Serviços</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary hover:bg-surface-container-low px-3 py-3 rounded-md" href="#especialidades">Especialidades</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary hover:bg-surface-container-low px-3 py-3 rounded-md" href="#sobre">Sobre</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary hover:bg-surface-container-low px-3 py-3 rounded-md" href="#depoimentos">Depoimentos</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary hover:bg-surface-container-low px-3 py-3 rounded-md" href="#faq">FAQ</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary hover:bg-surface-container-low px-3 py-3 rounded-md" href="#contato">Contato</a>
+<a class="font-label-md text-label-md bg-gradient-to-r from-primary to-[#2a67b8] text-on-primary px-3 py-3 rounded-md text-center mt-2" href="https://wa.me/5531999999999" target="_blank">Agendar Consulta</a>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative pt-xl pb-xl px-4 md:px-8 lg:px-20 max-w-container-max mx-auto flex flex-col md:flex-row items-center gap-gutter overflow-hidden" data-float="2">
+<div class="absolute -top-24 -left-24 w-80 h-80 rounded-full bg-primary/10 blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-16 right-0 w-96 h-96 rounded-full bg-secondary/10 blur-3xl pointer-events-none"></div>
+<div class="absolute top-1/2 right-1/3 w-40 h-40 rounded-full bg-primary-fixed/40 blur-2xl pointer-events-none"></div>
+<span class="paw-float absolute top-16 left-4 text-primary/15 material-symbols-outlined text-8xl rotate-12 pointer-events-none hidden md:block">pets</span>
+<span class="paw-float-alt absolute bottom-24 right-8 text-secondary/15 material-symbols-outlined text-7xl -rotate-12 pointer-events-none">pets</span>
+<span class="paw-float absolute top-1/3 left-1/2 text-primary/5 material-symbols-outlined text-9xl -translate-x-1/2 pointer-events-none hidden md:block">pets</span>
+<div class="flex-1 z-10 flex flex-col gap-6">
+<div class="reveal inline-flex items-center gap-2 bg-secondary/15 text-on-secondary-container px-4 py-2 rounded-full w-fit">
+<span class="material-symbols-outlined text-sm">history</span>
+<span class="font-label-md text-label-md">30 Anos de Confiança em BH</span>
+</div>
+<h1 class="reveal font-headline-lg-mobile text-headline-lg-mobile md:font-display-lg md:text-display-lg text-on-surface">Cuidado Veterinário <span class="text-shine">24 Horas</span> com Dedicação e Excelência.</h1>
+<p class="reveal font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Três décadas de história em Belo Horizonte. Tecnologia médica avançada unida a um ambiente acolhedor para o bem-estar da sua família.</p>
+<div class="reveal flex flex-col sm:flex-row gap-4 mt-4">
+<a class="magnetic pulse-ring bg-gradient-to-r from-primary to-[#2a67b8] text-on-primary font-label-md text-label-md px-8 py-4 rounded-full flex items-center justify-center gap-2 hover-lift text-center" href="https://wa.me/5531999999999" target="_blank">
+<span class="material-symbols-outlined">chat</span>
+                        Falar no WhatsApp
+                    </a>
+<a class="magnetic border border-secondary/60 text-secondary font-label-md text-label-md px-8 py-4 rounded-full flex items-center justify-center hover:bg-secondary/10 hover-lift text-center transition-colors" href="#servicos">
+                        Conhecer Serviços
+                    </a>
+</div>
+</div>
+<div class="reveal-right flex-1 relative w-full">
+<div class="absolute inset-0 bg-secondary/25 rounded-[2rem] rotate-3 scale-[1.03] pointer-events-none hidden sm:block"></div>
+<div class="relative w-full h-[260px] sm:h-[400px] lg:h-[500px] rounded-[2rem] overflow-hidden shadow-xl hover-lift">
+<img id="hero-img" alt="Veterinário acolhedor examinando um cãozinho com carinho" class="absolute inset-0 w-full h-full object-cover will-change-transform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpmFkXIP_ebnPjgZ_reuaeZRXVNVhstVMlb4UTx_OLpgOoRPH0PQrrI7UBwAsp6xlxMOFmZPLRBu2i8cjbiCtpaqpNqYlXYxWBTTEMn6bgg1Xs5E2YtgNbUZuiNlscIc1jXzVwjIVulnGwiSKkvL_z3bf3-d5iXn_Vo4emp3BzQ0rDggvrkznTi1ganyGjW9vMTvBmh8dwaKzW8lYJMHmEGV8IKAPqLCGVATF9WS4Df45GjqaNQW6-BrpWLT8sQsTECi7BMXBhQA">
+</div>
+<div class="absolute -top-5 -left-3 sm:-left-6 bg-secondary text-on-secondary w-24 h-24 sm:w-28 sm:h-28 rounded-full flex flex-col items-center justify-center gap-0.5 shadow-lg rotate-[-8deg] z-10">
+<span class="material-symbols-outlined text-2xl">pets</span>
+<span class="font-bold text-lg leading-none">24h</span>
+<span class="text-[10px] font-semibold uppercase tracking-wider leading-none">Emergência</span>
+</div>
+</div>
+</section>
+<!-- Diferenciais -->
+<section class="relative py-xl bg-surface-container-low paw-pattern px-4 md:px-8 lg:px-20 overflow-hidden" data-float="2">
+<span class="absolute -bottom-10 -left-8 text-primary/10 material-symbols-outlined text-8xl rotate-45 pointer-events-none hidden md:block">pets</span>
+<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="reveal bg-surface-container-lowest p-8 rounded-xl ambient-shadow hover-lift flex flex-col items-center text-center gap-4">
+<div class="bg-primary-fixed/30 p-4 rounded-full text-primary">
+<span class="material-symbols-outlined text-4xl">schedule</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Atendimento 24 Horas</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Sempre abertos para emergências e cuidados contínuos, garantindo tranquilidade para você e seu pet a qualquer hora.</p>
+</div>
+<div class="reveal bg-surface-container-lowest p-8 rounded-xl ambient-shadow hover-lift flex flex-col items-center text-center gap-4">
+<div class="bg-secondary-fixed/60 p-4 rounded-full text-on-secondary-container">
+<span class="material-symbols-outlined text-4xl">verified</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">30 Anos de Experiência</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Um legado de dedicação e expertise veterinária construído na região noroeste de Belo Horizonte.</p>
+</div>
+<div class="reveal bg-surface-container-lowest p-8 rounded-xl ambient-shadow hover-lift flex flex-col items-center text-center gap-4">
+<div class="bg-primary-fixed/30 p-4 rounded-full text-primary">
+<span class="material-symbols-outlined text-4xl">domain</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Estrutura Completa</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Centro cirúrgico avançado, laboratório próprio e internação moderna para diagnósticos rápidos e precisos.</p>
+</div>
+</div>
+</section>
+<!-- Serviços Section -->
+<section class="relative py-xl px-4 md:px-8 lg:px-20 max-w-container-max mx-auto overflow-hidden" id="servicos" data-float="2">
+<div class="reveal text-center mb-16">
+<span class="eyebrow mb-4 justify-center"><span class="material-symbols-outlined text-base">pets</span>Cuidado completo</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-4">Nossos Serviços</h2>
+<div class="flex items-center justify-center gap-3">
+<span class="w-16 h-px bg-outline-variant"></span>
+<span class="material-symbols-outlined text-secondary text-2xl">pets</span>
+<span class="w-16 h-px bg-outline-variant"></span>
+</div>
+<p class="mt-6 text-on-surface-variant max-w-2xl mx-auto">Oferecemos cuidado integral para todas as fases da vida do seu companheiro, com infraestrutura de ponta.</p>
+</div>
+<span class="absolute top-40 -right-6 text-secondary/10 material-symbols-outlined text-8xl -rotate-12 pointer-events-none hidden md:block">pets</span>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Consultas -->
+<div class="reveal tilt group relative overflow-hidden p-8 rounded-2xl border border-outline-variant/30 hover:border-primary/50 transition-all hover:shadow-md bg-surface-bright">
+<div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-primary to-secondary"></div>
+<span class="material-symbols-outlined absolute top-5 right-5 text-secondary/20 group-hover:text-secondary/50 transition-colors text-3xl pointer-events-none">pets</span>
+<span class="material-symbols-outlined text-primary text-4xl mb-4 block">stethoscope</span>
+<h4 class="font-headline-sm text-headline-sm mb-2">Consultas</h4>
+<p class="text-body-sm text-on-surface-variant">Atendimento clínico geral e preventivo para manter a saúde em dia.</p>
+</div>
+<!-- Vacinas -->
+<div class="reveal tilt group relative overflow-hidden p-8 rounded-2xl border border-outline-variant/30 hover:border-primary/50 transition-all hover:shadow-md bg-surface-bright">
+<div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-primary to-secondary"></div>
+<span class="material-symbols-outlined absolute top-5 right-5 text-secondary/20 group-hover:text-secondary/50 transition-colors text-3xl pointer-events-none">pets</span>
+<span class="material-symbols-outlined text-secondary text-4xl mb-4 block">vaccines</span>
+<h4 class="font-headline-sm text-headline-sm mb-2">Vacinas</h4>
+<p class="text-body-sm text-on-surface-variant">Protocolos vacinais atualizados para proteção contra as principais doenças.</p>
+</div>
+<!-- Exames -->
+<div class="reveal tilt group relative overflow-hidden p-8 rounded-2xl border border-outline-variant/30 hover:border-primary/50 transition-all hover:shadow-md bg-surface-bright">
+<div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-primary to-secondary"></div>
+<span class="material-symbols-outlined absolute top-5 right-5 text-secondary/20 group-hover:text-secondary/50 transition-colors text-3xl pointer-events-none">pets</span>
+<span class="material-symbols-outlined text-secondary text-4xl mb-4 block">biotech</span>
+<h4 class="font-headline-sm text-headline-sm mb-2">Exames</h4>
+<p class="text-body-sm text-on-surface-variant">Laboratório próprio para resultados rápidos em diagnósticos essenciais.</p>
+</div>
+<!-- Cirurgias -->
+<div class="reveal tilt group relative overflow-hidden p-8 rounded-2xl border border-outline-variant/30 hover:border-primary/50 transition-all hover:shadow-md bg-surface-bright">
+<div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-primary to-secondary"></div>
+<span class="material-symbols-outlined absolute top-5 right-5 text-secondary/20 group-hover:text-secondary/50 transition-colors text-3xl pointer-events-none">pets</span>
+<span class="material-symbols-outlined text-primary text-4xl mb-4 block">content_cut</span>
+<h4 class="font-headline-sm text-headline-sm mb-2">Cirurgias</h4>
+<p class="text-body-sm text-on-surface-variant">Centro cirúrgico equipado com tecnologia de monitoramento avançado.</p>
+</div>
+<!-- Internação -->
+<div class="reveal tilt group relative overflow-hidden p-8 rounded-2xl border border-outline-variant/30 hover:border-primary/50 transition-all hover:shadow-md bg-surface-bright">
+<div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-primary to-secondary"></div>
+<span class="material-symbols-outlined absolute top-5 right-5 text-secondary/20 group-hover:text-secondary/50 transition-colors text-3xl pointer-events-none">pets</span>
+<span class="material-symbols-outlined text-secondary text-4xl mb-4 block">monitor_heart</span>
+<h4 class="font-headline-sm text-headline-sm mb-2">Internação</h4>
+<p class="text-body-sm text-on-surface-variant">Monitoramento 24h por equipe qualificada em ambiente controlado.</p>
+</div>
+<!-- Hospedagem -->
+<div class="reveal tilt group relative overflow-hidden p-8 rounded-2xl border border-outline-variant/30 hover:border-primary/50 transition-all hover:shadow-md bg-surface-bright">
+<div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-primary to-secondary"></div>
+<span class="material-symbols-outlined absolute top-5 right-5 text-secondary/20 group-hover:text-secondary/50 transition-colors text-3xl pointer-events-none">pets</span>
+<span class="material-symbols-outlined text-secondary text-4xl mb-4 block">hotel</span>
+<h4 class="font-headline-sm text-headline-sm mb-2">Hospedagem</h4>
+<p class="text-body-sm text-on-surface-variant">Conforto e segurança para seu pet enquanto você viaja tranquilo.</p>
+</div>
+<!-- Banho e Tosa -->
+<div class="reveal tilt group relative overflow-hidden p-8 rounded-2xl border border-outline-variant/30 hover:border-primary/50 transition-all hover:shadow-md bg-surface-bright">
+<div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-primary to-secondary"></div>
+<span class="material-symbols-outlined absolute top-5 right-5 text-secondary/20 group-hover:text-secondary/50 transition-colors text-3xl pointer-events-none">pets</span>
+<span class="material-symbols-outlined text-primary text-4xl mb-4 block">content_cut</span>
+<h4 class="font-headline-sm text-headline-sm mb-2">Banho e Tosa</h4>
+<p class="text-body-sm text-on-surface-variant">Estética e higiene com carinho, utilizando produtos de alta qualidade.</p>
+</div>
+<!-- Check-up -->
+<div class="reveal tilt group relative overflow-hidden p-8 rounded-2xl border border-outline-variant/30 hover:border-primary/50 transition-all hover:shadow-md bg-surface-bright">
+<div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-primary to-secondary"></div>
+<span class="material-symbols-outlined absolute top-5 right-5 text-secondary/20 group-hover:text-secondary/50 transition-colors text-3xl pointer-events-none">pets</span>
+<span class="material-symbols-outlined text-secondary text-4xl mb-4 block">health_and_safety</span>
+<h4 class="font-headline-sm text-headline-sm mb-2">Check-up</h4>
+<p class="text-body-sm text-on-surface-variant">Programas preventivos completos adaptados à idade do seu pet.</p>
+</div>
+</div>
+</section>
+<!-- Especialidades Section -->
+<section class="relative py-xl bg-surface-container px-4 md:px-8 lg:px-20 overflow-hidden" id="especialidades" data-float="2">
+<span class="absolute top-10 right-4 text-primary/10 material-symbols-outlined text-8xl rotate-45 pointer-events-none hidden md:block">pets</span>
+<div class="max-w-container-max mx-auto flex flex-col lg:flex-row items-center gap-16">
+<div class="reveal-left flex-1">
+<span class="eyebrow mb-3"><span class="material-symbols-outlined text-base">pets</span>Rede de especialistas</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-6">Parceiros Especializados</h2>
+<p class="text-body-lg text-on-surface-variant mb-8">Para casos que exigem um olhar ainda mais específico, contamos com uma rede de parceiros altamente qualificados em diversas áreas da medicina veterinária:</p>
+<div class="grid grid-cols-2 gap-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">favorite</span>
+<span class="font-label-md">Cardiologia</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">spa</span>
+<span class="font-label-md">Dermatologia</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">mood</span>
+<span class="font-label-md">Odontologia</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">psychology</span>
+<span class="font-label-md">Neurologia</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">fitness_center</span>
+<span class="font-label-md">Fisioterapia</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">self_improvement</span>
+<span class="font-label-md">Acupuntura</span>
+</div>
+</div>
+</div>
+<div class="reveal-right flex-1 w-full h-[280px] sm:h-[400px] rounded-2xl overflow-hidden shadow-xl">
+<img alt="Equipe de especialistas veterinários da Clínica Pedigri" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-BVXUXPFMrnPe6Ys4aPGsbnTLfn_pWsNERh6nGLC-uyY2USWt_ya9m0gb4yq3vce0znC3f8jrp-r4-vSe2voT2V2uuiHgDf9c_-lzFzdIMXybYD433BgWdbhDBAU9cBgG_DLkHH5csor1cYwRyjveQ5f9oGn_vsh4JzArhlQJNy5gK-PGBRXeJEgs8faGGGaYvRbs8d5xxSpdEuajzTTXn8ug-q3mS43LG1t-Pg2z8SVOVG_7OeUjWRCoByQp9YxWtslWHsPYIA">
+</div>
+</div>
+</section>
+<!-- Sobre Nós Section -->
+<section class="relative py-xl px-4 md:px-8 lg:px-20 max-w-container-max mx-auto overflow-hidden" id="sobre" data-float="2">
+<span class="absolute top-20 -left-6 text-secondary/10 material-symbols-outlined text-7xl rotate-12 pointer-events-none hidden md:block">pets</span>
+<div class="flex flex-col md:flex-row gap-16 items-center">
+<div class="reveal-left md:w-1/2">
+<img alt="Fachada moderna da Clínica Veterinária Pedigri 24h" class="rounded-2xl shadow-lg w-full h-auto aspect-video object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDH7gFzAq4csgdLw1MPauVfY31Wdg8CUg2PRo6gMHbgrOT5hk7qInkn5fyofBUkfxAXjZKXVApeC2GPTArGKNKQshoYYFEbloKiMxwalQrWwn-KiKGeNnDStJ61XqWh-ZlTyTHK1vWVzsdtl2ns7hhOgmDmlXu0594F2FDKeKImFR6srd4MAhPiC9QboFkSyH1_9-F1ATjDzfIgLgK9oF6mtCcJg2WnlqI2PXG855bfQV8XyVImCbDNESHioOtIWro89Dw_b5_EPA">
+</div>
+<div class="reveal-right md:w-1/2">
+<span class="eyebrow mb-3"><span class="material-symbols-outlined text-base">pets</span>Sobre a clínica</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-6">Nossa História</h2>
+<p class="text-body-md text-on-surface-variant mb-4">Fundada há três décadas, a Pedigri Pet &amp; Vet nasceu de um sonho de oferecer medicina veterinária de qualidade aliada ao amor incondicional pelos animais. Localizada estrategicamente na região noroeste de Belo Horizonte, tornamo-nos referência para gerações de famílias mineiras.</p>
+<p class="text-body-md text-on-surface-variant mb-6">Ao longo desses 30 anos, evoluímos junto com a tecnologia, mas mantivemos intacta nossa essência: o atendimento humanizado. Para nós, seu pet não é apenas um paciente, ele é parte da nossa história e da sua família.</p>
+<div class="flex gap-6 sm:gap-8 flex-wrap">
+<div>
+<p class="text-primary font-bold text-3xl" data-count="30" data-suffix="+">0+</p>
+<p class="text-body-sm text-on-surface-variant">Anos em BH</p>
+</div>
+<div>
+<p class="text-primary font-bold text-3xl" data-count="15" data-suffix="k+">0k+</p>
+<p class="text-body-sm text-on-surface-variant">Pets Atendidos</p>
+</div>
+<div>
+<p class="text-primary font-bold text-3xl" data-count="24" data-suffix="h">0h</p>
+<p class="text-body-sm text-on-surface-variant">Sempre Alerta</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Depoimentos Section -->
+<section class="relative py-xl bg-surface-container-low px-4 md:px-8 lg:px-20 overflow-hidden" id="depoimentos" data-float="2">
+<span class="absolute bottom-10 right-4 text-primary/10 material-symbols-outlined text-8xl -rotate-12 pointer-events-none hidden md:block">pets</span>
+<div class="max-w-container-max mx-auto">
+<div class="text-center mb-12">
+<span class="eyebrow mb-4 justify-center"><span class="material-symbols-outlined text-base">pets</span>Depoimentos</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface flex items-center justify-center gap-3">O que dizem nossos clientes <span class="material-symbols-outlined text-secondary">pets</span></h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Testimonial 1 -->
+<div class="reveal tilt relative overflow-hidden bg-surface-bright p-8 rounded-xl shadow-sm border border-outline-variant/20 italic text-on-surface-variant">
+<span class="material-symbols-outlined absolute -top-3 -right-3 text-7xl text-primary/10 pointer-events-none">format_quote</span>
+<div class="flex gap-1 text-primary mb-4">
+<span class="material-symbols-outlined fill">star</span>
+<span class="material-symbols-outlined fill">star</span>
+<span class="material-symbols-outlined fill">star</span>
+<span class="material-symbols-outlined fill">star</span>
+<span class="material-symbols-outlined fill">star</span>
+</div>
+                        "O atendimento 24h salvou a vida do meu gato numa madrugada de domingo. Equipe extremamente preparada e atenciosa. Recomendo a todos em BH."
+                        <div class="mt-6 flex items-center gap-4 not-italic">
+<div class="w-10 h-10 rounded-full bg-primary-fixed/30 flex items-center justify-center font-bold text-primary">M</div>
+<div>
+<p class="font-bold text-on-surface text-sm">Mariana Silva</p>
+<p class="text-xs">Tutora do Oliver</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="reveal tilt relative overflow-hidden bg-surface-bright p-8 rounded-xl shadow-sm border border-outline-variant/20 italic text-on-surface-variant">
+<span class="material-symbols-outlined absolute -top-3 -right-3 text-7xl text-primary/10 pointer-events-none">format_quote</span>
+<div class="flex gap-1 text-primary mb-4">
+<span class="material-symbols-outlined fill">star</span>
+<span class="material-symbols-outlined fill">star</span>
+<span class="material-symbols-outlined fill">star</span>
+<span class="material-symbols-outlined fill">star</span>
+<span class="material-symbols-outlined fill">star</span>
+</div>
+                        "Levo meus cães na Pedigri há mais de 10 anos. Confio plenamente nos diagnósticos e no carinho com que tratam os animais no banho e tosa."
+                        <div class="mt-6 flex items-center gap-4 not-italic">
+<div class="w-10 h-10 rounded-full bg-primary-fixed/30 flex items-center justify-center font-bold text-primary">R</div>
+<div>
+<p class="font-bold text-on-surface text-sm">Ricardo Oliveira</p>
+<p class="text-xs">Tutor do Thor e Luna</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="reveal tilt relative overflow-hidden bg-surface-bright p-8 rounded-xl shadow-sm border border-outline-variant/20 italic text-on-surface-variant">
+<span class="material-symbols-outlined absolute -top-3 -right-3 text-7xl text-primary/10 pointer-events-none">format_quote</span>
+<div class="flex gap-1 text-primary mb-4">
+<span class="material-symbols-outlined fill">star</span>
+<span class="material-symbols-outlined fill">star</span>
+<span class="material-symbols-outlined fill">star</span>
+<span class="material-symbols-outlined fill">star</span>
+<span class="material-symbols-outlined fill">star</span>
+</div>
+                        "Equipe de cirurgia excelente. Tudo foi explicado com calma e o pós-operatório foi muito bem acompanhado pela internação."
+                        <div class="mt-6 flex items-center gap-4 not-italic">
+<div class="w-10 h-10 rounded-full bg-primary-fixed/30 flex items-center justify-center font-bold text-primary">C</div>
+<div>
+<p class="font-bold text-on-surface text-sm">Carla Mendes</p>
+<p class="text-xs">Tutora da Mel</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="relative py-xl px-4 md:px-8 lg:px-20 max-w-container-max mx-auto overflow-hidden" id="faq" data-float="2">
+<div class="max-w-3xl mx-auto">
+<span class="eyebrow reveal justify-center mb-3"><span class="material-symbols-outlined text-base">pets</span>Dúvidas frequentes</span>
+<h2 class="reveal font-headline-lg text-headline-lg text-on-surface text-center mb-12 flex items-center justify-center gap-3"><span class="material-symbols-outlined text-secondary">pets</span>Perguntas Frequentes<span class="material-symbols-outlined text-primary">pets</span></h2>
+<div class="space-y-4">
+<details class="reveal group border border-outline-variant/30 rounded-xl bg-surface-bright overflow-hidden" open="">
+<summary class="flex justify-between items-center p-6 cursor-pointer font-bold text-on-surface hover:bg-surface-container-low transition-colors list-none">
+                            Como funciona o atendimento de emergência 24h?
+                            <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<div class="p-6 pt-0 text-on-surface-variant border-t border-outline-variant/10">
+                            Nosso hospital está aberto 365 dias por ano, 24 horas por dia. Não é necessário agendar para casos de emergência; basta trazer o animal para triagem imediata.
+                        </div>
+</details>
+<details class="reveal group border border-outline-variant/30 rounded-xl bg-surface-bright overflow-hidden">
+<summary class="flex justify-between items-center p-6 cursor-pointer font-bold text-on-surface hover:bg-surface-container-low transition-colors list-none">
+                            Preciso agendar consultas de rotina e vacinas?
+                            <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<div class="p-6 pt-0 text-on-surface-variant border-t border-outline-variant/10">
+                            Sim, recomendamos o agendamento prévio para consultas eletivas e vacinação para garantir o horário de sua preferência e minimizar o tempo de espera.
+                        </div>
+</details>
+<details class="reveal group border border-outline-variant/30 rounded-xl bg-surface-bright overflow-hidden">
+<summary class="flex justify-between items-center p-6 cursor-pointer font-bold text-on-surface hover:bg-surface-container-low transition-colors list-none">
+                            Quais são as formas de pagamento aceitas?
+                            <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<div class="p-6 pt-0 text-on-surface-variant border-t border-outline-variant/10">
+                            Aceitamos cartões de débito, crédito (com opções de parcelamento), Pix e dinheiro. Trabalhamos com transparência em nossos orçamentos.
+                        </div>
+</details>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="relative bg-surface-container-lowest dark:bg-surface-dim full-width paw-pattern py-16 border-t border-surface-container-high dark:border-outline-variant mt-xl overflow-hidden" id="contato">
+<span class="absolute -bottom-8 right-10 text-secondary/10 material-symbols-outlined text-9xl -rotate-12 pointer-events-none hidden md:block">pets</span>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-8 lg:px-20 max-w-container-max mx-auto">
+<div class="reveal flex flex-col gap-4">
+<img alt="Pedigri Logo" class="h-12 w-auto object-contain self-start" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARi7_V04UonepRQFvDLUU-GXnHmhjL3EoTRxt7c4L9VomdzkRkajwlv24IIQXFrxKlFsi9VaKTWRI8QkOpmbYViMePT8NJc32i3KR1L2aEXuQbOwZY4gaxq5uhz-EY4aRy6doEmShk8mdWYQw_S71zh6QkRMP4_j_J7PRNa2UDo67dOJ1ZFqtmWiFlko9xXOHo_a2kAnuVMEr1v-0AB1itUKYUVlsTeeoO-klj3UiWxlCMKXeXxODEdOZmV0e5ENUkEiZlRab_iQ">
+<p class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-secondary-fixed-variant">Cuidado compassivo e tecnologia médica avançada para a família do seu pet desde 1994.</p>
+</div>
+<div class="reveal flex flex-col gap-4">
+<h4 class="font-headline-sm text-headline-sm text-primary dark:text-primary-fixed">Links Rápidos</h4>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary underline-offset-4 hover:underline transition-all" href="#servicos">Serviços</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary underline-offset-4 hover:underline transition-all" href="#especialidades">Especialidades</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary underline-offset-4 hover:underline transition-all" href="#sobre">Nossa História</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary underline-offset-4 hover:underline transition-all" href="#faq">Dúvidas</a>
+</div>
+<div class="reveal flex flex-col gap-4">
+<h4 class="font-headline-sm text-headline-sm text-secondary dark:text-primary-fixed">Suporte</h4>
+<p class="font-body-sm text-on-surface-variant font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm fill">phone_in_talk</span>
+                    (31) 3333-3333
+                </p>
+<a class="font-body-sm text-body-sm text-primary font-bold hover:underline" href="#">Emergência 24h</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary underline-offset-4 hover:underline transition-all" href="#">Política de Privacidade</a>
+</div>
+<div class="reveal flex flex-col gap-4">
+<h4 class="font-headline-sm text-headline-sm text-secondary dark:text-primary-fixed">Localização</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-secondary-fixed-variant">Região Noroeste, Belo Horizonte - MG</p>
+<div class="h-32 bg-surface-container rounded-lg overflow-hidden border border-outline-variant relative">
+<img alt="Mapa Belo Horizonte" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHpjdkOYaHQq-9qmPwbA_AzgS7H1MJdH2-u91yXaJNrIP1PuijlpEhN5l74dyPuWpOofl179hUC1BgyVl0eKFAJhrmxfBCeAa1FgYpQJaj-PG_lT6MYInmJRCDle83FDnR8XX8_XDuEaixMQm0qSys7Z9D6Idn9g5d0diJMhpZPv8uWfAMnJRsioiQIGaD_lSQE5MaINHuVcErWmBLnwnqxVvRZvo23ymowqGKKebBOpA7Vj87fwT7NWSS2sHebw3Bt0Qzyms5qQ">
+</div>
+</div>
+</div>
+<div class="reveal text-center mt-12 px-8 border-t border-outline-variant/10 pt-8">
+<p class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-secondary-fixed-variant">© 2024 Clínica Veterinária Pedigri 24h - Excelência e confiança em Belo Horizonte</p>
+</div>
+</footer>
+
+
+<script>
+(function () {
+    var btn = document.getElementById('menu-btn');
+    var menu = document.getElementById('mobile-menu');
+    var icon = document.getElementById('menu-icon');
+    if (btn && menu) {
+        function toggle() {
+            var open = menu.classList.toggle('hidden');
+            menu.classList.toggle('flex', !open);
+            if (icon) icon.textContent = open ? 'menu' : 'close';
+        }
+        btn.addEventListener('click', toggle);
+        menu.querySelectorAll('a').forEach(function (a) {
+            a.addEventListener('click', function () {
+                menu.classList.add('hidden');
+                menu.classList.remove('flex');
+                if (icon) icon.textContent = 'menu';
+            });
+        });
+    }
+})();
+</script>
+<script>
+(function () {
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var finePointer = window.matchMedia('(hover: hover)').matches;
+
+    /* 1. Barra de progresso + header retrátil + botão topo + parallax */
+    var progress = document.getElementById('progress');
+    var header = document.getElementById('site-header');
+    var backTop = document.getElementById('back-top');
+    var heroImg = document.getElementById('hero-img');
+    function onScroll() {
+        var scrolled = window.scrollY;
+        var max = document.documentElement.scrollHeight - window.innerHeight;
+        if (progress && max > 0) progress.style.width = (scrolled / max * 100) + '%';
+        if (header) header.classList.toggle('scrolled', scrolled > 40);
+        if (backTop) backTop.classList.toggle('show', scrolled > 500);
+        if (heroImg && scrolled < window.innerHeight) {
+            var p = Math.min(scrolled / window.innerHeight, 1);
+            heroImg.style.transform = 'scale(' + (1.12 - p * 0.12) + ')';
+        }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    if (backTop) backTop.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    /* 2. Revelação ao scroll com stagger */
+    var revealEls = Array.prototype.slice.call(document.querySelectorAll('.reveal, .reveal-left, .reveal-right'));
+    revealEls.forEach(function (el) {
+        var sib = el.parentNode ? Array.prototype.slice.call(el.parentNode.children) : [el];
+        var idx = sib.indexOf(el);
+        var delay = Math.min(idx * 90, 900);
+        el.style.transitionDelay = delay + 'ms';
+        el._rdelay = delay;
+    });
+    function revealIn(el) {
+        el.classList.add('in');
+        setTimeout(function () {
+            el.classList.remove('reveal', 'reveal-left', 'reveal-right', 'in');
+            el.style.transitionDelay = '0ms';
+        }, (el._rdelay || 0) + 950);
+    }
+    if ('IntersectionObserver' in window && !reduce) {
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (e.isIntersecting) { revealIn(e.target); io.unobserve(e.target); }
+            });
+        }, { threshold: 0.15 });
+        revealEls.forEach(function (el) { io.observe(el); });
+    } else {
+        revealEls.forEach(function (el) { revealIn(el); });
+    }
+
+    /* 3. Contadores animados */
+    function animateCount(el) {
+        var target = parseFloat(el.getAttribute('data-count')) || 0;
+        var suffix = el.getAttribute('data-suffix') || '';
+        var dur = 1800, start = null;
+        function step(ts) {
+            if (!start) start = ts;
+            var p = Math.min((ts - start) / dur, 1);
+            var eased = 1 - Math.pow(1 - p, 3);
+            el.textContent = Math.round(target * eased) + suffix;
+            if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+    }
+    var counters = Array.prototype.slice.call(document.querySelectorAll('[data-count]'));
+    if ('IntersectionObserver' in window) {
+        var cio = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (e.isIntersecting) { animateCount(e.target); cio.unobserve(e.target); }
+            });
+        }, { threshold: 0.5 });
+        counters.forEach(function (el) { cio.observe(el); });
+    } else {
+        counters.forEach(function (el) { animateCount(el); });
+    }
+
+    /* 4. Tilt 3D nos cards */
+    if (!reduce && finePointer) {
+        Array.prototype.slice.call(document.querySelectorAll('.tilt')).forEach(function (card) {
+            card.addEventListener('mousemove', function (e) {
+                var r = card.getBoundingClientRect();
+                var x = (e.clientX - r.left) / r.width - 0.5;
+                var y = (e.clientY - r.top) / r.height - 0.5;
+                card.style.transform = 'perspective(800px) rotateY(' + (x * 8) + 'deg) rotateX(' + (-y * 8) + 'deg) translateY(-4px)';
+            });
+            card.addEventListener('mouseleave', function () {
+                card.style.transform = '';
+            });
+        });
+    }
+
+    /* 6. Botões magnéticos */
+    if (!reduce && finePointer) {
+        Array.prototype.slice.call(document.querySelectorAll('.magnetic')).forEach(function (btn) {
+            btn.addEventListener('mousemove', function (e) {
+                var r = btn.getBoundingClientRect();
+                var x = e.clientX - r.left - r.width / 2;
+                var y = e.clientY - r.top - r.height / 2;
+                btn.style.transform = 'translate(' + x * 0.25 + 'px,' + y * 0.25 + 'px)';
+            });
+            btn.addEventListener('mouseleave', function () {
+                btn.style.transform = '';
+            });
+        });
+    }
+
+    /* 7. Patinhas flutuantes por seção */
+    if (!reduce) {
+        Array.prototype.slice.call(document.querySelectorAll('[data-float]')).forEach(function (sec) {
+            var n = parseInt(sec.getAttribute('data-float'), 10) || 2;
+            for (var i = 0; i < n; i++) {
+                var s = document.createElement('span');
+                s.textContent = 'pets';
+                s.className = 'material-symbols-outlined float-sparkle';
+                s.style.left = (5 + Math.random() * 90) + '%';
+                s.style.top = (5 + Math.random() * 90) + '%';
+                s.style.fontSize = (18 + Math.random() * 28) + 'px';
+                s.style.color = Math.random() > 0.5 ? 'rgba(21,72,132,0.12)' : 'rgba(107,179,56,0.14)';
+                s.style.animationDelay = (Math.random() * 6) + 's';
+                s.style.animationDuration = (4 + Math.random() * 4) + 's';
+                sec.appendChild(s);
+            }
+        });
+    }
+})();
+</script>
+</body></html>
